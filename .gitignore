@@ -123,3 +123,7 @@ dmypy.json
 
 # Yarn cache
 .yarn/
+
+# intelliJ
+.idea
+*.iml
