@@ -10,3 +10,26 @@
     align-items: center;
     overflow: auto;
 }
+
+.jp-TopAreaText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+#jp-MainLogo svg {
+    display: none;
+}
+#jp-MainLogo {
+    background-image: url('https://noteable.edina.ac.uk/images/noteable_square_logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#noteable-logo {
+    padding: 1px;
+    width: 100px;
+    height: 100%;
+}
+.notebook-type {
+    margin-right: 15px;
+}

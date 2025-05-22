@@ -1,0 +1,42 @@
+{
+  "title": "Noteable Look and Feel plugin",
+  "description": "A plugin to add Look and Feel items to Jupyterlab 4.",
+  "jupyter.lab.menus": {
+    "main": [
+      {
+        "id": "jp-mainmenu-noteable-laf",
+        "label": "Noteable",
+        "rank": 80,
+        "items": [
+          {
+            "command": "noteable-laf:go2LaunchPage",
+            "args": {
+              "origin": "from the menu"
+            }
+          },
+          {
+            "command": "noteable-laf:go2Resources",
+            "args": {
+              "origin": "from the menu"
+            }
+          },
+          {
+            "command": "noteable-laf:go2HelpAndGuides",
+            "args": {
+              "origin": "from the menu"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "jupyter.lab.shortcuts": [
+    {
+      "command": "noteable-laf:go2LaunchPage",
+      "keys": ["Accel Shift Z"],
+      "selector": ".jp-mod-searchable"
+    }
+  ],
+  "additionalProperties": false,
+  "type": "object"
+}
