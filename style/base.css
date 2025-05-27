@@ -31,5 +31,7 @@
     height: 100%;
 }
 .notebook-type {
+    height: 26px;
+    width: auto;
     margin-right: 15px;
 }

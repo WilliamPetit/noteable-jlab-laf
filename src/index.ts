@@ -10,12 +10,14 @@ import {
   WidgetTracker
 } from '@jupyterlab/apputils';
 
-import { LabIcon } from '@jupyterlab/ui-components';
-import notebookTypeIcon from '../style/notebook-type.svg';
-import { notebookInfo } from "./notebook_info";
+// import { LabIcon } from '@jupyterlab/ui-components';
+// import notebookTypeIcon from '../style/notebook-type.svg';
+// import { notebookInfo } from "./notebook_info";
 
 import { DOMUtils } from '@jupyterlab/apputils';
 import { Widget } from '@lumino/widgets';
+
+import { requestAPI } from './handler';
 
 interface APODResponse {
   copyright: string;
@@ -117,6 +119,8 @@ const plugin: JupyterFrontEndPlugin<void> = {
 };
 
 const TOP_AREA_CSS_CLASS = 'jp-TopAreaText';
+let notebookTypeIconUrl: string = '';
+let notebookType: string = '';
 
 /**
  * Activate the APOD widget extension.
@@ -125,10 +129,26 @@ function activate(
     app: JupyterFrontEnd,
     palette: ICommandPalette,
     restorer: ILayoutRestorer | null) {
+
+  // Try avoiding awaiting in the activate function because
+  // it will delay the application start up time.
+  requestAPI<any>('env')
+      .then(data => {
+        console.log(data);
+        notebookTypeIconUrl = data.iconTypeUrl;
+        notebookType = data.notebookType;
+        setupIcons(app);
+      })
+      .catch(reason => {
+        console.error(
+            `The jupyterlab_apod server extension appears to be missing: \n${reason.message}`
+        );
+      });
+
   setupAPOD(app, palette, restorer);
 
   // Add Noteable icons
-  setupIcons(app);
+  // getLocalSetting();
   setupCommands(app, palette);
   setupMenu(app, palette);
 }
@@ -141,16 +161,28 @@ function setupIcons(app: JupyterFrontEnd) {
   node.setAttribute('id', 'noteable-logo-section');
   node.setAttribute('aria-label', 'notable logos');
 
-  if (notebookInfo.iconType === 'svg') {
-    const icon: LabIcon = new LabIcon({ name: 'notebook-type-icon', svgstr: notebookTypeIcon });
-    node.appendChild(icon.element({
-      className: 'notebook-type',
-      height: '26px',
-      width: 'auto',
-      elementPosition: 'right',
-      title: notebookInfo.title,
-      tag: 'span',
-    }));
+  // if (notebookInfo.iconType === 'svg') {
+  //   const icon: LabIcon = new LabIcon({ name: 'notebook-type-icon', svgstr: notebookTypeIcon });
+  //   node.appendChild(icon.element({
+  //     className: 'notebook-type',
+  //     height: '26px',
+  //     width: 'auto',
+  //     elementPosition: 'right',
+  //     title: notebookInfo.title,
+  //     tag: 'span',
+  //   }));
+  // } else
+  if(notebookTypeIconUrl !== '') {
+    const notebookTypeLogo = document.createElement('img');
+    notebookTypeLogo.setAttribute('alt', notebookType + ' logo');
+    notebookTypeLogo.setAttribute('id', 'notebook-type-icon');
+    notebookTypeLogo.setAttribute('class', 'notebook-type');
+    notebookTypeLogo.setAttribute('title', notebookType);
+    notebookTypeLogo.setAttribute(
+        'src',
+        notebookTypeIconUrl
+    );
+    node.appendChild(notebookTypeLogo);
   }
 
   const lpAnchor = document.createElement('a');
@@ -208,7 +240,7 @@ function setupCommands(
     command: 'noteable-laf:go2HelpAndGuides',
     label: 'View Help and Guides page',
     caption: 'Open the Noteable Help and Guides page (in a new tab)',
-    action: () => window.open('/help_guides')
+    action: () => window.open('/help_guides/')
   });
 
   /*
@@ -291,5 +323,19 @@ function setupAPOD(app: JupyterFrontEnd<JupyterFrontEnd.IShell, "desktop" | "mob
     });
   }
 }
+
+// function getLocalSetting() {
+//   // Try avoiding awaiting in the activate function because
+//   // it will delay the application start up time.
+//   requestAPI<any>('settings')
+//       .then(data => {
+//         notebookTypeIconUrl = data.iconTypeUrl;
+//       })
+//       .catch(reason => {
+//         console.error(
+//             `The jupyterlab_apod server extension appears to be missing.\n${reason}`
+//         );
+//       });
+// }
 
 export default plugin;

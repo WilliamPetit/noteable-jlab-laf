@@ -2332,6 +2332,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jupyterlab/launcher@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "@jupyterlab/launcher@npm:4.4.2"
+  dependencies:
+    "@jupyterlab/apputils": ^4.5.2
+    "@jupyterlab/translation": ^4.4.2
+    "@jupyterlab/ui-components": ^4.4.2
+    "@lumino/algorithm": ^2.0.3
+    "@lumino/commands": ^2.3.2
+    "@lumino/coreutils": ^2.2.1
+    "@lumino/disposable": ^2.1.4
+    "@lumino/properties": ^2.0.3
+    "@lumino/widgets": ^2.7.1
+    react: ^18.2.0
+  checksum: dc8bd9822da02cb9efe2dbf6c92a47389d51714ec6aaffd671a80d8407a608911e53b6e28fe750b06e95373d54ced557582268c8690f074260a4e5c31291d244
+  languageName: node
+  linkType: hard
+
 "@jupyterlab/lsp@npm:^4.4.2":
   version: 4.4.2
   resolution: "@jupyterlab/lsp@npm:4.4.2"
@@ -4794,9 +4812,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.149":
-  version: 1.5.155
-  resolution: "electron-to-chromium@npm:1.5.155"
-  checksum: 6e8f666d4ea0b70e1dd94e2ae588a4e38545beab1d9de7875e19a771f333549cf304fe6cbf19d773d7ac79dffae1c479b9d4291cf6f1523e5d24109ae79f610c
+  version: 1.5.157
+  resolution: "electron-to-chromium@npm:1.5.157"
+  checksum: 479d1bb9458f0e19d0853a7f423b8a2468ca0f4a36772bfe115460183bc94662d63d4a4cde98c4aaf3c06e1840646e85dd48ef854ddf634fd169c6504540ea44
   languageName: node
   linkType: hard
 
@@ -6827,7 +6845,10 @@ __metadata:
     "@jupyterlab/application": ^4.4.2
     "@jupyterlab/apputils": ^4.5.2
     "@jupyterlab/builder": ^4.0.0
+    "@jupyterlab/coreutils": ^6.4.2
+    "@jupyterlab/launcher": ^4.4.2
     "@jupyterlab/mainmenu": ^4.4.2
+    "@jupyterlab/services": ^7.4.2
     "@jupyterlab/testutils": ^4.0.0
     "@lumino/widgets": ^2.7.1
     "@types/jest": ^29.2.0
@@ -8988,12 +9009,12 @@ __metadata:
   linkType: hard
 
 "tinyglobby@npm:^0.2.12":
-  version: 0.2.13
-  resolution: "tinyglobby@npm:0.2.13"
+  version: 0.2.14
+  resolution: "tinyglobby@npm:0.2.14"
   dependencies:
     fdir: ^6.4.4
     picomatch: ^4.0.2
-  checksum: 3a2e87a2518cb3616057b0aa58be4f17771ae78c6890556516ae1e631f8ce4cfee1ba1dcb62fcc54a64e2bdd6c3104f4f3d021e1a3e3f8fb0875bca380b913e5
+  checksum: 261e986e3f2062dec3a582303bad2ce31b4634b9348648b46828c000d464b012cf474e38f503312367d4117c3f2f18611992738fca684040758bba44c24de522
   languageName: node
   linkType: hard
 
@@ -9508,9 +9529,9 @@ __metadata:
   linkType: hard
 
 "webpack-sources@npm:^3.2.3":
-  version: 3.2.3
-  resolution: "webpack-sources@npm:3.2.3"
-  checksum: 989e401b9fe3536529e2a99dac8c1bdc50e3a0a2c8669cbafad31271eadd994bc9405f88a3039cd2e29db5e6d9d0926ceb7a1a4e7409ece021fe79c37d9c4607
+  version: 3.3.0
+  resolution: "webpack-sources@npm:3.3.0"
+  checksum: 3098025872b445f39ab873241303c111a11e832b88ef124d9988593af47f245db4e9a485c449cd63ec14ab2562139b009d15c255599eb9837b67d182519031ff
   languageName: node
   linkType: hard
 
