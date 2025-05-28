@@ -1,10 +1,15 @@
-# jupyterlab_apod
+# Noteable Look and Feel
 
-[![Github Actions Status](https://github.com/WilliamPetit/jupyterlab_apod/workflows/Build/badge.svg)](https://github.com/WilliamPetit/jupyterlab_apod/actions/workflows/build.yml)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/WilliamPetit/jupyterlab_apod/main?urlpath=lab)
+A jupyterlab extension to add the notebook indicator graphic and the "return to launch page" link to the top-right corner of the UI
 
+![preview](./preview.jpg)
 
-Show a random NASA Astronomy Picture of the Day in a JupyterLab panel
+## Jupyter Notebook / JupyterLab compatibility
+
+As Jupyter Notebook 7+ is built with components from JupyterLab, and since
+both use the same building blocks, that means your extension can work
+on both (or any other frontend built with JupyterLab components) with
+little or no modification depending on its design.
 
 ## Requirements
 
@@ -15,7 +20,7 @@ Show a random NASA Astronomy Picture of the Day in a JupyterLab panel
 To install the extension, execute:
 
 ```bash
-pip install jupyterlab_apod
+pip install jlab-noteable-laf
 ```
 
 ## Uninstall
@@ -23,7 +28,7 @@ pip install jupyterlab_apod
 To remove the extension, execute:
 
 ```bash
-pip uninstall jupyterlab_apod
+pip uninstall jlab-noteable-laf
 ```
 
 ## Contributing
@@ -38,13 +43,15 @@ The `jlpm` command is JupyterLab's pinned version of
 
 ```bash
 # Clone the repo to your local environment
-# Change directory to the jupyterlab_apod directory
+# Change directory to the jlab-noteable-laf directory
 # Install package in development mode
-pip install -e "."
+pip install -e .
 # Link your development version of the extension with JupyterLab
 jupyter labextension develop . --overwrite
+# Enable the server extension
+jupyter server extension enable jlab_noteable_laf
 # Rebuild extension Typescript source after making changes
-jlpm build
+jlpm run build
 ```
 
 You can watch the source directory and run JupyterLab at the same time in different terminals to watch for changes in the extension's source and automatically rebuild the extension.
@@ -67,12 +74,12 @@ jupyter lab build --minimize=False
 ### Development uninstall
 
 ```bash
-pip uninstall jupyterlab_apod
+pip uninstall jlab-noteable-laf
 ```
 
 In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
 command. To find its location, you can run `jupyter labextension list` to figure out where the `labextensions`
-folder is located. Then you can remove the symlink named `jupyterlab_apod` within that folder.
+folder is located. Then you can remove the symlink named `jlab-noteable-laf` within that folder.
 
 ### Testing the extension
 

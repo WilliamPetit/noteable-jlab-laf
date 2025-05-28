@@ -20,7 +20,7 @@ def setup_handlers(web_app):
 
     base_url = web_app.settings["base_url"]
 
-    route_pattern = url_path_join(base_url, "jupyterlab_apod", "env")
+    route_pattern = url_path_join(base_url, "jlab-server", "env")
     handlers = [(route_pattern, EnvRouteHandler)]
     web_app.add_handlers(host_pattern, handlers)
 

@@ -1,15 +1,15 @@
 {
-    "name": "jupyterlab_apod",
+    "name": "jlab_noteable_laf",
     "version": "0.2.0",
-    "description": "Show a random NASA Astronomy Picture of the Day in a JupyterLab panel",
+    "description": "A JupyterLab extension to add Noteable Look and Feel",
     "keywords": [
         "jupyter",
         "jupyterlab",
         "jupyterlab-extension"
     ],
-    "homepage": "https://github.com/WilliamPetit/jupyterlab_apod",
+    "homepage": "https://github.com/WilliamPetit/jlab_noteable_laf",
     "bugs": {
-        "url": "https://github.com/WilliamPetit/jupyterlab_apod/issues"
+        "url": "https://github.com/WilliamPetit/jlab_noteable_laf/issues"
     },
     "license": "BSD-3-Clause",
     "author": {
@@ -27,7 +27,7 @@
     "style": "style/index.css",
     "repository": {
         "type": "git",
-        "url": "https://github.com/WilliamPetit/jupyterlab_apod.git"
+        "url": "https://github.com/WilliamPetit/jlab_noteable_laf.git"
     },
     "scripts": {
         "build": "jlpm build:lib && jlpm build:labextension:dev",
@@ -39,7 +39,7 @@
         "clean": "jlpm clean:lib",
         "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
         "clean:lintcache": "rimraf .eslintcache .stylelintcache",
-        "clean:labextension": "rimraf jupyterlab_apod/labextension jupyterlab_apod/_version.py",
+        "clean:labextension": "rimraf jlab_noteable_laf/labextension jlab_noteable_laf/_version.py",
         "clean:all": "jlpm clean:lib && jlpm clean:labextension && jlpm clean:lintcache",
         "eslint": "jlpm eslint:check --fix",
         "eslint:check": "eslint . --cache --ext .ts,.tsx",
@@ -107,12 +107,12 @@
                     "pip"
                 ],
                 "base": {
-                    "name": "jupyterlab_apod"
+                    "name": "jlab_noteable_laf"
                 }
             }
         },
         "extension": true,
-        "outputDir": "jupyterlab_apod/labextension",
+        "outputDir": "jlab_noteable_laf/labextension",
         "schemaDir": "schema"
     },
     "eslintIgnore": [

@@ -1,8 +1,8 @@
-# a mybinder.org-ready environment for demoing jupyterlab_apod
+# a mybinder.org-ready environment for demoing jlab_noteable_laf
 # this environment may also be used locally on Linux/MacOS/Windows, e.g.
 #
 #   conda env update --file binder/environment.yml
-#   conda activate jupyterlab-apod-demo
+#   conda activate jlab-noteable-laf-demo
 #
 name: jupyterlab-apod-demo
 
